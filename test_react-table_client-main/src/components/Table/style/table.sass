@@ -1,0 +1,70 @@
+$borderMain: 2px solid purple
+  
+%sort-custom-icon
+  content: ''
+  position: absolute
+  top: 50%
+  right: 2%
+  transform: translate(-50%, -50%)
+  border-left: 6px solid transparent
+  border-right: 6px solid transparent
+
+.table-component
+  display: flex
+  flex-direction: column
+  margin: 20px 20px 0 20px
+
+  &__title
+    margin-bottom: 20px
+    font-size: 1.8rem
+    color: red
+
+  &__navigation
+    display: flex
+    flex-direction: row
+    margin-bottom: 10px
+
+  &__table
+    width: 100%
+    table-layout: fixed
+    border-collapse: collapse
+    border-top: $borderMain
+    border-right: $borderMain
+    border-bottom: $borderMain
+
+  &__thead
+    color: red
+
+  // &__tr
+  &__th
+    position: relative
+    padding: 10px
+    border-left: $borderMain
+    border-bottom: $borderMain
+
+    &--clickable
+      cursor: pointer
+      user-select: none
+
+      &:hover
+        color: rgba(red, .7)
+
+      &:active
+        color: blue
+
+    &--sort
+      &-increase::after
+        @extend %sort-custom-icon
+        border-bottom: 8px solid red
+
+      &-decrease
+        @extend %sort-custom-icon
+        border-top: 8px solid red
+
+  // &__tbody
+  &__td
+    padding: 10px
+    border-left: $borderMain
+    border-bottom: 1px solid gray
+
+@import navigation
